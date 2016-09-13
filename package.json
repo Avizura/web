@@ -1,0 +1,24 @@
+{
+  "name": "webim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Avizura/web.git"
+  },
+  "author": "michael.dovzhenko@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Avizura/web/issues"
+  },
+  "homepage": "https://github.com/Avizura/web#readme"
+}
