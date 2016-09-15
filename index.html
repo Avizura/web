@@ -3,32 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Webim</title>
     <script src="https://unpkg.com/react@15.3.1/dist/react.js"></script>
     <script src="https://unpkg.com/react-dom@15.3.1/dist/react-dom.js"></script>
 </head>
 
 <body>
-    <!-- <div id="content"></div> -->
-    <button class="auth">Click</button>
-    <script>
-        var btn = document.getElementsByClassName('auth')[0];
-        btn.addEventListener('click', function() {
-            console.log('qwerty');
-        });
-    </script>
+    <div id="content"></div>
+
     <script src="https://vk.com/js/api/openapi.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        VK.init({
-            apiId: 5627770
-        });
-    </script>
-    <script>
-        VK.Auth.login(function(data) {
-            console.log('logiiin');
-            console.log(data);
-        });
-    </script>
+    <script src="./dist/bundle.js"></script>
 </body>
 
 </html>

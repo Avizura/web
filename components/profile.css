@@ -1,0 +1,19 @@
+.profile {
+    width: 400px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.friends {
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.friend {
+    padding: 5px 10px;
+}
