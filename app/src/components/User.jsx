@@ -28,7 +28,7 @@ const User = React.createClass({
         return (
             <div className="user">
                 <div className="user-name">{this.state.fullName}</div>
-                <img src={this.state.photo}></img>
+                <img className="user-photo" src={this.state.photo}></img>
             </div>
         )
     }

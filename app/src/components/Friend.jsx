@@ -5,7 +5,7 @@ const Friend = React.createClass({
         return (
             <div className="friend">
                 <div className="friend-name">{this.props.firstName}</div>
-                <img src={this.props.photo}></img>
+                <img className="friend-photo" src={this.props.photo}></img>
             </div>
         )
     }

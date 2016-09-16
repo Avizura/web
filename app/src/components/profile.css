@@ -17,3 +17,7 @@
 .friend {
     padding: 5px 10px;
 }
+
+.user-photo, .friend-photo {
+    border-radius: 50%;
+}

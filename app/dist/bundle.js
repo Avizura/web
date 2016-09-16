@@ -27214,7 +27214,6 @@
 	    loggedIn: false,
 	    login(callback) {
 	        VK.Auth.login(function(data) {
-	            console.log(data.status)
 	            this.loggedIn = true;
 	            callback && callback();
 	        });
@@ -27222,7 +27221,6 @@
 
 	    logout(callback) {
 	        VK.Auth.logout(function(data) {
-	            console.log(data);
 	            this.loggedIn = false;
 	            callback && callback();
 	        });
@@ -27393,7 +27391,7 @@
 	                { className: 'user-name' },
 	                this.state.fullName
 	            ),
-	            _react2.default.createElement('img', { src: this.state.photo })
+	            _react2.default.createElement('img', { className: 'user-photo', src: this.state.photo })
 	        );
 	    }
 	});
@@ -27427,7 +27425,7 @@
 	                { className: "friend-name" },
 	                this.props.firstName
 	            ),
-	            _react2.default.createElement("img", { src: this.props.photo })
+	            _react2.default.createElement("img", { className: "friend-photo", src: this.props.photo })
 	        );
 	    }
 	});
@@ -27469,7 +27467,7 @@
 
 
 	// module
-	exports.push([module.id, ".profile {\n    width: 400px;\n    margin: auto;\n    display: flex;\n    justify-content: space-around;\n    flex-wrap: wrap;\n    text-align: center;\n}\n\n.friends {\n    width: 300px;\n    display: flex;\n    justify-content: space-around;\n    flex-wrap: wrap;\n}\n\n.friend {\n    padding: 5px 10px;\n}\n", ""]);
+	exports.push([module.id, ".profile {\n    width: 400px;\n    margin: auto;\n    display: flex;\n    justify-content: space-around;\n    flex-wrap: wrap;\n    text-align: center;\n}\n\n.friends {\n    width: 300px;\n    display: flex;\n    justify-content: space-around;\n    flex-wrap: wrap;\n}\n\n.friend {\n    padding: 5px 10px;\n}\n\n.user-photo, .friend-photo {\n    border-radius: 50%;\n}\n", ""]);
 
 	// exports
 
