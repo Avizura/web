@@ -1,4 +1,6 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+
+import LogoutButton from './LogoutButton.jsx';
 import User from './User.jsx';
 import Friend from './Friend.jsx';
 
@@ -23,14 +25,18 @@ const Profile = React.createClass({
         });
         friends.splice(5, friends.length);
         return (
-            <div className="profile">
-                <User></User>
-                <div className="friends">
-                    {friends}
+            <div>
+                <LogoutButton></LogoutButton>
+                <div className="profile">
+                    <User></User>
+                    <div className="friends">
+                        {friends}
+                    </div>
                 </div>
             </div>
-            )
-        }
-    });
+
+        )
+    }
+});
 
 export default Profile;

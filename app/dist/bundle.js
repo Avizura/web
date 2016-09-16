@@ -54,49 +54,23 @@
 
 	var _reactRouter = __webpack_require__(172);
 
-	var _AuthButton = __webpack_require__(235);
+	var _App = __webpack_require__(235);
+
+	var _App2 = _interopRequireDefault(_App);
+
+	var _AuthButton = __webpack_require__(236);
 
 	var _AuthButton2 = _interopRequireDefault(_AuthButton);
 
-	var _Profile = __webpack_require__(237);
+	var _Profile = __webpack_require__(238);
 
 	var _Profile2 = _interopRequireDefault(_Profile);
 
-	var _auth = __webpack_require__(236);
+	var _auth = __webpack_require__(237);
 
 	var _auth2 = _interopRequireDefault(_auth);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var APPID = '5627770';
-
-	var App = _react2.default.createClass({
-	    displayName: 'App',
-
-	    componentDidMount: function componentDidMount() {
-	        VK.init({
-	            apiId: APPID
-	        });
-	        VK.Auth.getLoginStatus(function (response) {
-	            _auth2.default.loggedIn = !!response.session;
-	        });
-	        VK.Observer.subscribe('auth.login', function (response) {
-	            _auth2.default.loggedIn = true;
-	            _reactRouter.browserHistory.push('/');
-	        });
-	        VK.Observer.subscribe('auth.logout', function (response) {
-	            _auth2.default.loggedIn = false;
-	            _reactRouter.browserHistory.push('/login');
-	        });
-	    },
-	    render: function render() {
-	        return _react2.default.createElement(
-	            'div',
-	            { className: 'main' },
-	            this.props.children
-	        );
-	    }
-	});
 
 	function requireAuth(nextState, replaceState) {
 	    !_auth2.default.loggedIn && replaceState('/login');
@@ -111,7 +85,7 @@
 	    { history: _reactRouter.browserHistory },
 	    _react2.default.createElement(
 	        _reactRouter.Route,
-	        { path: '/', component: App },
+	        { path: '/', component: _App2.default },
 	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _Profile2.default, onEnter: requireAuth }),
 	        _react2.default.createElement(_reactRouter.Route, { path: 'login', component: _AuthButton2.default, onEnter: isAuth })
 	    ),
@@ -27155,13 +27129,61 @@
 	    value: true
 	});
 
+	var _reactRouter = __webpack_require__(172);
+
+	var _auth = __webpack_require__(237);
+
+	var _auth2 = _interopRequireDefault(_auth);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var APPID = '5627770';
+
+	var App = React.createClass({
+	    displayName: 'App',
+
+	    componentDidMount: function componentDidMount() {
+	        VK.init({
+	            apiId: APPID
+	        });
+	        VK.Auth.getLoginStatus(function (response) {
+	            _auth2.default.loggedIn = !!response.session;
+	        });
+	        VK.Observer.subscribe('auth.login', function (response) {
+	            _auth2.default.loggedIn = true;
+	            _reactRouter.browserHistory.push('/');
+	        });
+	        VK.Observer.subscribe('auth.logout', function (response) {
+	            _auth2.default.loggedIn = false;
+	            _reactRouter.browserHistory.push('/login');
+	        });
+	    },
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            { className: 'main' },
+	            this.props.children
+	        );
+	    }
+	});
+
+	exports.default = App;
+
+/***/ },
+/* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRouter = __webpack_require__(172);
-
-	var _auth = __webpack_require__(236);
+	var _auth = __webpack_require__(237);
 
 	var _auth2 = _interopRequireDefault(_auth);
 
@@ -27185,7 +27207,7 @@
 	exports.default = AuthButton;
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -27213,7 +27235,7 @@
 
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27226,17 +27248,21 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _User = __webpack_require__(238);
+	var _LogoutButton = __webpack_require__(239);
+
+	var _LogoutButton2 = _interopRequireDefault(_LogoutButton);
+
+	var _User = __webpack_require__(240);
 
 	var _User2 = _interopRequireDefault(_User);
 
-	var _Friend = __webpack_require__(239);
+	var _Friend = __webpack_require__(241);
 
 	var _Friend2 = _interopRequireDefault(_Friend);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	__webpack_require__(244);
+	__webpack_require__(242);
 
 	var Profile = _react2.default.createClass({
 	    displayName: 'Profile',
@@ -27260,12 +27286,17 @@
 	        friends.splice(5, friends.length);
 	        return _react2.default.createElement(
 	            'div',
-	            { className: 'profile' },
-	            _react2.default.createElement(_User2.default, null),
+	            null,
+	            _react2.default.createElement(_LogoutButton2.default, null),
 	            _react2.default.createElement(
 	                'div',
-	                { className: 'friends' },
-	                friends
+	                { className: 'profile' },
+	                _react2.default.createElement(_User2.default, null),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'friends' },
+	                    friends
+	                )
 	            )
 	        );
 	    }
@@ -27274,7 +27305,44 @@
 	exports.default = Profile;
 
 /***/ },
-/* 238 */
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _auth = __webpack_require__(237);
+
+	var _auth2 = _interopRequireDefault(_auth);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var LogoutButton = _react2.default.createClass({
+	    displayName: 'LogoutButton',
+
+	    logout: function logout() {
+	        _auth2.default.logout();
+	    },
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'button',
+	            { onClick: this.logout },
+	            'Выйти'
+	        );
+	    }
+	});
+
+	exports.default = LogoutButton;
+
+/***/ },
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27333,7 +27401,7 @@
 	exports.default = User;
 
 /***/ },
-/* 239 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27367,9 +27435,47 @@
 	exports.default = Friend;
 
 /***/ },
-/* 240 */,
-/* 241 */,
 /* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(243);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(245)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./profile.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./profile.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(244)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".profile {\n    width: 400px;\n    margin: auto;\n    display: flex;\n    justify-content: space-around;\n    flex-wrap: wrap;\n    text-align: center;\n}\n\n.friends {\n    width: 300px;\n    display: flex;\n    justify-content: space-around;\n    flex-wrap: wrap;\n}\n\n.friend {\n    padding: 5px 10px;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 244 */
 /***/ function(module, exports) {
 
 	/*
@@ -27425,7 +27531,7 @@
 
 
 /***/ },
-/* 243 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -27674,46 +27780,6 @@
 		if(oldSrc)
 			URL.revokeObjectURL(oldSrc);
 	}
-
-
-/***/ },
-/* 244 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(245);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(243)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./profile.css", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./profile.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 245 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(242)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".profile {\n    width: 400px;\n    margin: auto;\n    display: flex;\n    justify-content: space-around;\n    flex-wrap: wrap;\n    text-align: center;\n}\n\n.friends {\n    width: 300px;\n    display: flex;\n    justify-content: space-around;\n    flex-wrap: wrap;\n}\n\n.friend {\n    padding: 5px 10px;\n}\n", ""]);
-
-	// exports
 
 
 /***/ }

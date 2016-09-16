@@ -1,5 +1,4 @@
 import React from 'react';
-import { browserHistory  } from 'react-router';
 import auth from '../auth.js';
 
 const AuthButton = React.createClass({
